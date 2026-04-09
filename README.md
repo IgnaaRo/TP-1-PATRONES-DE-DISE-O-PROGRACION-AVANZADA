@@ -1,7 +1,7 @@
 
 # Patrones de Diseño
 
-Alumno: Romero Ignacio
+
 
 ## Patrón de Creación: Multiton
 Definición
