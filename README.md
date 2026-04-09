@@ -14,6 +14,7 @@ Ventajas
 Permite controlar múltiples instancias de manera eficiente.
 Evita la creación redundante de objetos.
 Facilita la organización de recursos según diferentes categorías.
+
 Desventajas
 Presenta mayor complejidad que el patrón Singleton.
 Puede generar un mayor acoplamiento en el sistema.
@@ -40,6 +41,7 @@ Ventajas
 Reduce la cantidad de clases necesarias.
 Permite modificar la implementación sin afectar la abstracción.
 Aumenta la flexibilidad del sistema.
+
 Desventajas
 Incrementa la complejidad inicial del diseño.
 Puede resultar innecesario en aplicaciones de pequeña escala.
@@ -61,10 +63,16 @@ Ventajas
 Disminuye el acoplamiento entre clases.
 Mejora la mantenibilidad del sistema.
 Centraliza la lógica de comunicación.
+
 Desventajas
 El mediador puede volverse complejo con el tiempo.
 Existe el riesgo de que se convierta en un componente excesivamente centralizado.
 Aplicaciones
 
 Se utiliza en sistemas de mensajería, plataformas de soporte técnico, interfaces gráficas y entornos donde múltiples componentes deben interactuar entre sí.
+
+Resultado 
+
+<img width="524" height="226" alt="image" src="https://github.com/user-attachments/assets/425cec64-71ee-4df7-b42e-4071dfe5eee8" />
+
 
