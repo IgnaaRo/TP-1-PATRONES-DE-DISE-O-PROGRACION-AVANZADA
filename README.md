@@ -1,5 +1,5 @@
 
-# Patrones de Diseño de Software
+# Patrones de Diseño
 
 ## Patrón de Creación: Multiton
 Definición
