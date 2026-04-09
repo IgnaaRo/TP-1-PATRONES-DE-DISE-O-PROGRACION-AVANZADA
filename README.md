@@ -1,7 +1,7 @@
 
 ## Patrones de Diseño de Software
 
-Patrón de Creación: Multiton
+#### Patrón de Creación: Multiton
 Definición
 
 El patrón Multiton es una variante del patrón Singleton que permite gestionar múltiples instancias de una clase, identificadas mediante claves únicas. A diferencia del Singleton, que restringe la creación a una única instancia, el Multiton administra un conjunto limitado de instancias controladas.
