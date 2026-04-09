@@ -1,4 +1,3 @@
-# INFORME ACADÉMICO
 
 ## Patrones de Diseño de Software
 
