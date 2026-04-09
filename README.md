@@ -1,7 +1,7 @@
 
-## Patrones de Diseño de Software
+# Patrones de Diseño de Software
 
-### Patrón de Creación: Multiton
+## Patrón de Creación: Multiton
 Definición
 
 El patrón Multiton es una variante del patrón Singleton que permite gestionar múltiples instancias de una clase, identificadas mediante claves únicas. A diferencia del Singleton, que restringe la creación a una única instancia, el Multiton administra un conjunto limitado de instancias controladas.
@@ -21,7 +21,8 @@ Aplicaciones
 
 Este patrón resulta útil en sistemas que requieren manejar distintas configuraciones, como conexiones a bases de datos por región o instancias diferenciadas de servicios.
 
-Patrón Estructural: Bridge
+## Patrón Estructural: Bridge
+
 Definición
 
 El patrón Bridge tiene como objetivo separar una abstracción de su implementación, permitiendo que ambas puedan evolucionar de forma independiente. Esto evita la proliferación de clases cuando existen múltiples combinaciones posibles entre abstracciones e implementaciones.
@@ -46,7 +47,8 @@ Aplicaciones
 
 Se aplica en sistemas donde existen múltiples variantes de implementación, como plataformas de pago, dispositivos electrónicos o interfaces desacopladas de su lógica interna.
 
-Patrón de Comportamiento: Mediator
+## Patrón de Comportamiento: Mediator
+
 Definición
 
 El patrón Mediator centraliza la comunicación entre múltiples objetos, evitando que estos interactúen directamente entre sí. De esta forma, se reduce el acoplamiento entre componentes y se mejora la organización del sistema.
