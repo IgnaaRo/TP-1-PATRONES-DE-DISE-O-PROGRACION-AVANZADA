@@ -10,12 +10,12 @@ Implementación
 
 La implementación se basa en el uso de una estructura de datos, generalmente un mapa, que asocia claves con instancias. Cuando se solicita una instancia, el sistema verifica si ya existe una asociada a la clave proporcionada; en caso contrario, la crea y la almacena para futuras referencias.
 
-Ventajas
+-Ventajas
 Permite controlar múltiples instancias de manera eficiente.
 Evita la creación redundante de objetos.
 Facilita la organización de recursos según diferentes categorías.
 
-Desventajas
+-Desventajas
 Presenta mayor complejidad que el patrón Singleton.
 Puede generar un mayor acoplamiento en el sistema.
 Aplicaciones
@@ -37,12 +37,12 @@ La implementación, que contiene la lógica concreta.
 
 Ambas se relacionan mediante composición en lugar de herencia, lo que permite mayor flexibilidad en el diseño.
 
-Ventajas
+-Ventajas
 Reduce la cantidad de clases necesarias.
 Permite modificar la implementación sin afectar la abstracción.
 Aumenta la flexibilidad del sistema.
 
-Desventajas
+-Desventajas
 Incrementa la complejidad inicial del diseño.
 Puede resultar innecesario en aplicaciones de pequeña escala.
 Aplicaciones
@@ -59,12 +59,12 @@ Implementación
 
 Se introduce un objeto mediador encargado de gestionar la interacción entre los distintos componentes. Los objetos envían sus mensajes al mediador, quien se encarga de distribuirlos de manera adecuada.
 
-Ventajas
+-Ventajas
 Disminuye el acoplamiento entre clases.
 Mejora la mantenibilidad del sistema.
 Centraliza la lógica de comunicación.
 
-Desventajas
+-Desventajas
 El mediador puede volverse complejo con el tiempo.
 Existe el riesgo de que se convierta en un componente excesivamente centralizado.
 Aplicaciones
