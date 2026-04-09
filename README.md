@@ -35,7 +35,7 @@ Comprender e implementar distintos tipos de patrones de diseño utilizando el le
 
 El patrón Multiton es una variación del patrón Singleton que permite gestionar múltiples instancias de una clase, identificadas mediante claves únicas.
 
-##### Implementación (Código adaptado)
+
 
 ```java
 import java.util.HashMap;
@@ -79,7 +79,6 @@ class GestorUsuarios {
 
 El patrón Bridge separa la abstracción de su implementación.
 
-##### Implementación (Código adaptado)
 
 ```java
 interface MetodoPago {
@@ -136,7 +135,6 @@ class CompraOnline extends Compra {
 
 El patrón Mediator centraliza la comunicación entre objetos.
 
-##### Implementación (Código adaptado)
 
 ```java
 import java.util.ArrayList;
@@ -195,15 +193,5 @@ Los patrones de diseño representan herramientas fundamentales para el desarroll
 Cada uno de ellos aporta soluciones específicas a problemas particulares, permitiendo mejorar la organización, flexibilidad y mantenibilidad del código. Si bien algunos de estos patrones pueden introducir complejidad adicional, su correcta aplicación resulta clave en sistemas de mayor escala.
 
 El conocimiento de estos patrones permite a los desarrolladores tomar decisiones más informadas y diseñar sistemas más robustos y adaptables.
-
----
-
-### 5. Bibliografía
-
-* Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). Design Patterns: Elements of Reusable Object-Oriented Software.
-* Freeman, E., & Robson, E. (2004). Head First Design Patterns.
-* Documentación oficial de Java.
-
----
 
 
