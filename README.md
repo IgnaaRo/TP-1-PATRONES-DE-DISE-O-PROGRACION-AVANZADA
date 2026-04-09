@@ -2,196 +2,68 @@
 
 ## Patrones de Diseño de Software
 
----
+Patrón de Creación: Multiton
+Definición
 
-### 1. Introducción
+El patrón Multiton es una variante del patrón Singleton que permite gestionar múltiples instancias de una clase, identificadas mediante claves únicas. A diferencia del Singleton, que restringe la creación a una única instancia, el Multiton administra un conjunto limitado de instancias controladas.
 
-En el desarrollo de software, los patrones de diseño constituyen soluciones probadas a problemas comunes que se presentan durante la construcción de sistemas. Estos patrones permiten mejorar la organización del código, facilitar su mantenimiento y aumentar la escalabilidad de las aplicaciones.
+Implementación
 
-El presente trabajo tiene como objetivo analizar e implementar tres patrones de diseño, uno por cada categoría principal: creación, estructura y comportamiento. A diferencia de los patrones más tradicionales, se han seleccionado variantes menos comunes con el fin de ampliar la comprensión sobre distintas alternativas de diseño.
+La implementación se basa en el uso de una estructura de datos, generalmente un mapa, que asocia claves con instancias. Cuando se solicita una instancia, el sistema verifica si ya existe una asociada a la clave proporcionada; en caso contrario, la crea y la almacena para futuras referencias.
 
----
+Ventajas
+Permite controlar múltiples instancias de manera eficiente.
+Evita la creación redundante de objetos.
+Facilita la organización de recursos según diferentes categorías.
+Desventajas
+Presenta mayor complejidad que el patrón Singleton.
+Puede generar un mayor acoplamiento en el sistema.
+Aplicaciones
 
-### 2. Objetivos
+Este patrón resulta útil en sistemas que requieren manejar distintas configuraciones, como conexiones a bases de datos por región o instancias diferenciadas de servicios.
 
-#### 2.1 Objetivo General
+Patrón Estructural: Bridge
+Definición
 
-Comprender e implementar distintos tipos de patrones de diseño utilizando el lenguaje Java en el entorno de desarrollo Apache NetBeans.
+El patrón Bridge tiene como objetivo separar una abstracción de su implementación, permitiendo que ambas puedan evolucionar de forma independiente. Esto evita la proliferación de clases cuando existen múltiples combinaciones posibles entre abstracciones e implementaciones.
 
-#### 2.2 Objetivos Específicos
+Implementación
 
-* Analizar el funcionamiento de patrones de diseño poco utilizados.
-* Implementar ejemplos prácticos de cada patrón.
-* Evaluar ventajas y desventajas de cada solución.
-* Comprender su aplicación en sistemas reales.
+Se estructura en dos jerarquías principales:
 
----
+La abstracción, que define la interfaz de alto nivel.
+La implementación, que contiene la lógica concreta.
 
-### 3. Desarrollo
+Ambas se relacionan mediante composición en lugar de herencia, lo que permite mayor flexibilidad en el diseño.
 
-#### 3.1 Patrón de Creación: Multiton
+Ventajas
+Reduce la cantidad de clases necesarias.
+Permite modificar la implementación sin afectar la abstracción.
+Aumenta la flexibilidad del sistema.
+Desventajas
+Incrementa la complejidad inicial del diseño.
+Puede resultar innecesario en aplicaciones de pequeña escala.
+Aplicaciones
 
-##### Definición
+Se aplica en sistemas donde existen múltiples variantes de implementación, como plataformas de pago, dispositivos electrónicos o interfaces desacopladas de su lógica interna.
 
-El patrón Multiton es una variación del patrón Singleton que permite gestionar múltiples instancias de una clase, identificadas mediante claves únicas.
+Patrón de Comportamiento: Mediator
+Definición
 
+El patrón Mediator centraliza la comunicación entre múltiples objetos, evitando que estos interactúen directamente entre sí. De esta forma, se reduce el acoplamiento entre componentes y se mejora la organización del sistema.
 
+Implementación
 
-```java
-import java.util.HashMap;
-import java.util.Map;
+Se introduce un objeto mediador encargado de gestionar la interacción entre los distintos componentes. Los objetos envían sus mensajes al mediador, quien se encarga de distribuirlos de manera adecuada.
 
-class GestorUsuarios {
-    private static Map<String, GestorUsuarios> instancias = new HashMap<>();
-    private String tipo;
+Ventajas
+Disminuye el acoplamiento entre clases.
+Mejora la mantenibilidad del sistema.
+Centraliza la lógica de comunicación.
+Desventajas
+El mediador puede volverse complejo con el tiempo.
+Existe el riesgo de que se convierta en un componente excesivamente centralizado.
+Aplicaciones
 
-    private GestorUsuarios(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public static GestorUsuarios obtenerInstancia(String tipo) {
-        if (!instancias.containsKey(tipo)) {
-            instancias.put(tipo, new GestorUsuarios(tipo));
-        }
-        return instancias.get(tipo);
-    }
-
-    public void mostrarTipo() {
-        System.out.println("Tipo de usuario: " + tipo);
-    }
-}
-```
-
-##### Ventajas
-
-* Permite controlar múltiples instancias de forma eficiente.
-* Evita la duplicación innecesaria de objetos.
-
-##### Desventajas
-
-* Incrementa la complejidad respecto al Singleton.
-
----
-
-#### 3.2 Patrón Estructural: Bridge
-
-##### Definición
-
-El patrón Bridge separa la abstracción de su implementación.
-
-
-```java
-interface MetodoPago {
-    void procesarPago(double monto);
-}
-
-class PagoTarjeta implements MetodoPago {
-    public void procesarPago(double monto) {
-        System.out.println("Pago con tarjeta: $" + monto);
-    }
-}
-
-class PagoEfectivo implements MetodoPago {
-    public void procesarPago(double monto) {
-        System.out.println("Pago en efectivo: $" + monto);
-    }
-}
-
-abstract class Compra {
-    protected MetodoPago metodo;
-
-    public Compra(MetodoPago metodo) {
-        this.metodo = metodo;
-    }
-
-    public abstract void realizarPago(double monto);
-}
-
-class CompraOnline extends Compra {
-    public CompraOnline(MetodoPago metodo) {
-        super(metodo);
-    }
-
-    public void realizarPago(double monto) {
-        metodo.procesarPago(monto);
-    }
-}
-```
-
-##### Ventajas
-
-* Permite cambiar implementaciones fácilmente.
-* Reduce combinaciones de clases.
-
-##### Desventajas
-
-* Mayor complejidad inicial.
-
----
-
-#### 3.3 Patrón de Comportamiento: Mediator
-
-##### Definición
-
-El patrón Mediator centraliza la comunicación entre objetos.
-
-
-```java
-import java.util.ArrayList;
-import java.util.List;
-
-class SistemaSoporte {
-    private List<Empleado> empleados = new ArrayList<>();
-
-    public void agregarEmpleado(Empleado e) {
-        empleados.add(e);
-    }
-
-    public void enviarMensaje(String mensaje, Empleado emisor) {
-        for (Empleado e : empleados) {
-            if (e != emisor) {
-                e.recibirMensaje(mensaje);
-            }
-        }
-    }
-}
-
-class Empleado {
-    private String nombre;
-    private SistemaSoporte sistema;
-
-    public Empleado(String nombre, SistemaSoporte sistema) {
-        this.nombre = nombre;
-        this.sistema = sistema;
-    }
-
-    public void enviar(String mensaje) {
-        sistema.enviarMensaje(nombre + " dice: " + mensaje, this);
-    }
-
-    public void recibirMensaje(String mensaje) {
-        System.out.println(nombre + " recibe -> " + mensaje);
-    }
-}
-```
-
-##### Ventajas
-
-* Reduce el acoplamiento.
-* Centraliza la comunicación.
-
-##### Desventajas
-
-* Puede volverse complejo.
-
----
-
-### 4. Conclusión
-
-Los patrones de diseño representan herramientas fundamentales para el desarrollo de software de calidad. A través de este trabajo, se logró implementar y analizar tres patrones menos convencionales: Multiton, Bridge y Mediator.
-
-Cada uno de ellos aporta soluciones específicas a problemas particulares, permitiendo mejorar la organización, flexibilidad y mantenibilidad del código. Si bien algunos de estos patrones pueden introducir complejidad adicional, su correcta aplicación resulta clave en sistemas de mayor escala.
-
-El conocimiento de estos patrones permite a los desarrolladores tomar decisiones más informadas y diseñar sistemas más robustos y adaptables.
-
+Se utiliza en sistemas de mensajería, plataformas de soporte técnico, interfaces gráficas y entornos donde múltiples componentes deben interactuar entre sí.
 
